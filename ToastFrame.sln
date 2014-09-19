@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToastFrameSample", "ToastFrameSample\ToastFrameSample.csproj", "{30DCDAEA-1FAA-4A59-B6FB-D77B827A018A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Em.UI.Xaml.Controls.ToastFrame", "Em.UI.Xaml.Controls.ToastFrame\Em.UI.Xaml.Controls.ToastFrame.csproj", "{20E22A37-BCD9-4398-9B56-FAA219DAEC31}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{30DCDAEA-1FAA-4A59-B6FB-D77B827A018A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30DCDAEA-1FAA-4A59-B6FB-D77B827A018A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30DCDAEA-1FAA-4A59-B6FB-D77B827A018A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{30DCDAEA-1FAA-4A59-B6FB-D77B827A018A}.Debug|ARM.ActiveCfg = Debug|ARM
+		{30DCDAEA-1FAA-4A59-B6FB-D77B827A018A}.Debug|ARM.Build.0 = Debug|ARM
+		{30DCDAEA-1FAA-4A59-B6FB-D77B827A018A}.Debug|ARM.Deploy.0 = Debug|ARM
+		{30DCDAEA-1FAA-4A59-B6FB-D77B827A018A}.Debug|x86.ActiveCfg = Debug|x86
+		{30DCDAEA-1FAA-4A59-B6FB-D77B827A018A}.Debug|x86.Build.0 = Debug|x86
+		{30DCDAEA-1FAA-4A59-B6FB-D77B827A018A}.Debug|x86.Deploy.0 = Debug|x86
+		{30DCDAEA-1FAA-4A59-B6FB-D77B827A018A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30DCDAEA-1FAA-4A59-B6FB-D77B827A018A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30DCDAEA-1FAA-4A59-B6FB-D77B827A018A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{30DCDAEA-1FAA-4A59-B6FB-D77B827A018A}.Release|ARM.ActiveCfg = Release|ARM
+		{30DCDAEA-1FAA-4A59-B6FB-D77B827A018A}.Release|ARM.Build.0 = Release|ARM
+		{30DCDAEA-1FAA-4A59-B6FB-D77B827A018A}.Release|ARM.Deploy.0 = Release|ARM
+		{30DCDAEA-1FAA-4A59-B6FB-D77B827A018A}.Release|x86.ActiveCfg = Release|x86
+		{30DCDAEA-1FAA-4A59-B6FB-D77B827A018A}.Release|x86.Build.0 = Release|x86
+		{30DCDAEA-1FAA-4A59-B6FB-D77B827A018A}.Release|x86.Deploy.0 = Release|x86
+		{20E22A37-BCD9-4398-9B56-FAA219DAEC31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20E22A37-BCD9-4398-9B56-FAA219DAEC31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20E22A37-BCD9-4398-9B56-FAA219DAEC31}.Debug|ARM.ActiveCfg = Debug|ARM
+		{20E22A37-BCD9-4398-9B56-FAA219DAEC31}.Debug|ARM.Build.0 = Debug|ARM
+		{20E22A37-BCD9-4398-9B56-FAA219DAEC31}.Debug|x86.ActiveCfg = Debug|x86
+		{20E22A37-BCD9-4398-9B56-FAA219DAEC31}.Debug|x86.Build.0 = Debug|x86
+		{20E22A37-BCD9-4398-9B56-FAA219DAEC31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20E22A37-BCD9-4398-9B56-FAA219DAEC31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20E22A37-BCD9-4398-9B56-FAA219DAEC31}.Release|ARM.ActiveCfg = Release|ARM
+		{20E22A37-BCD9-4398-9B56-FAA219DAEC31}.Release|ARM.Build.0 = Release|ARM
+		{20E22A37-BCD9-4398-9B56-FAA219DAEC31}.Release|x86.ActiveCfg = Release|x86
+		{20E22A37-BCD9-4398-9B56-FAA219DAEC31}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

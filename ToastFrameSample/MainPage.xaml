@@ -1,0 +1,27 @@
+﻿<Page
+    x:Class="ToastFrameSample.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Margin="20,0">
+        <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+            <TextBlock Text="Toast notifications"/>
+            <Button Click="Short_OnClick">Short</Button>
+            <Button Click="Info_OnClick">Informational</Button>
+            <Button Click="WithTitle_OnClick">With title</Button>
+            <Button Click="Long_OnClick">Long</Button>
+            <Button Click="LongWithTitle_OnClick">Long with title</Button>
+            <Button Click="Hide_OnClick">Hide</Button>
+            <Button Click="Clear_OnClick">Clear</Button>
+            
+            <TextBlock Text="Status bar"/>
+            <TextBox x:Name="StatusBarText" Text="Hello, world!"/>
+            <Button Click="SetStatusBar_OnClick">Set status bar</Button>
+            <Button Click="HideStatusBar_OnClick">Hide</Button>
+        </StackPanel>
+    </Grid>
+</Page>
