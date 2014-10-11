@@ -99,7 +99,7 @@
                                 Margin="{TemplateBinding Padding}"
                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-                        
+
                         <local:ToastFrameStatusBar x:Name="StatusBar" VerticalAlignment="Top" Style="{TemplateBinding StatusBarStyle}"/>
 
                         <Border x:Name="OuterToast" VerticalAlignment="Top" ManipulationMode="TranslateX">
@@ -111,7 +111,7 @@
                                 <UIElement.RenderTransform>
                                     <TranslateTransform/>
                                 </UIElement.RenderTransform>
-                                
+
                                 <Border x:Name="NormalToast" Background="{TemplateBinding ToastBackground}"
                                         MinHeight="60" Margin="0,-5,0,0" Padding="20,25,20,10">
 
@@ -121,7 +121,7 @@
                                         <TextBlock x:Name="ToastText" Foreground="{TemplateBinding ToastForeground}" FontSize="16" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" MaxLines="3"/>
                                     </StackPanel>
                                 </Border>
-                                
+
                                 <Border x:Name="InfoToast" Background="{TemplateBinding ToastBackground}" Margin="0,-5,0,0" Padding="20,5,20,0">
                                     <TextBlock x:Name="InfoToastText" Foreground="{TemplateBinding ToastForeground}" FontSize="16" TextTrimming="CharacterEllipsis" Margin="0,3"/>
                                 </Border>
@@ -451,7 +451,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
     <Style TargetType="local:ToastFrameStatusBar">
         <Setter Property="ProgressBarFill" Value="{ThemeResource PhoneAccentBrush}"/>
         <Setter Property="Template">
@@ -484,7 +484,7 @@
                                             </DoubleAnimation>
                                         </Storyboard>
                                     </VisualTransition>
-                                    
+
                                     <VisualTransition From="StatusBarVisible" To="StatusBarHidden">
                                         <Storyboard>
                                             <DoubleAnimation Storyboard.TargetName="ControlRoot" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
@@ -498,7 +498,7 @@
                                 </VisualStateGroup.Transitions>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
-                        
+
                         <UIElement.RenderTransform>
                             <TranslateTransform/>
                         </UIElement.RenderTransform>

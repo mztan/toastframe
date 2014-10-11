@@ -23,7 +23,7 @@ namespace Em.UI.Xaml.Controls
 
         // Must swipe a minimum distance in order to qualify as a swipe, regardless of speed.
         private const double MinSwipeDistanceThreshold = 20;
-        
+
         // Default timeout duration for a toast
         private static readonly TimeSpan ToastTimeout = TimeSpan.FromSeconds(3);
 
@@ -95,6 +95,11 @@ namespace Em.UI.Xaml.Controls
             _toastQueue = new Queue<ToastInfo>();
             _toastTimer = new DispatcherTimer { Interval = ToastTimeout };
             _toastTimer.Tick += ToastTimer_Tick;
+
+            // This is a dummy status bar. Its purpose is to allow the status bar's properties
+            // to be changed before OnApplyTemplate is called. Then, on OnApplyTemplate, the
+            // properties from the dummy instance are transferred to the actual instance.
+            StatusBar = new ToastFrameStatusBar();
         }
 
         /// <summary>
@@ -204,7 +209,8 @@ namespace Em.UI.Xaml.Controls
         private void OnToastActivated()
         {
             // If this toast has already been handled (i.e. it has already been activated, dismissed, or timed out), do nothing
-            if (_currentToastHandled) return;
+            // It is also possible (due to animations) that this callback is called after the current toast has already been removed.
+            if (_currentToastHandled || _currentToast == null) return;
             _currentToastHandled = true;
 
             // Call the callback if necessary, passing along the result and the user-specified state
@@ -219,7 +225,7 @@ namespace Em.UI.Xaml.Controls
 
         private void OnToastDismissed()
         {
-            if (_currentToastHandled) return;
+            if (_currentToastHandled || _currentToast == null) return;
             _currentToastHandled = true;
 
             if (_currentToast.Callback != null)
@@ -231,7 +237,7 @@ namespace Em.UI.Xaml.Controls
 
         private void OnToastTimedOut()
         {
-            if (_currentToastHandled) return;
+            if (_currentToastHandled || _currentToast == null) return;
             _currentToastHandled = true;
 
             if (_currentToast.Callback != null)
@@ -339,11 +345,24 @@ namespace Em.UI.Xaml.Controls
             _toastTitle = (TextBlock)GetTemplateChild("ToastTitle");
             _toastText = (TextBlock)GetTemplateChild("ToastText");
 
-            _normalToast = (UIElement) GetTemplateChild("NormalToast");
-            _infoToast = (UIElement) GetTemplateChild("InfoToast");
-            _infoToastText = (TextBlock) GetTemplateChild("InfoToastText");
+            _normalToast = (UIElement)GetTemplateChild("NormalToast");
+            _infoToast = (UIElement)GetTemplateChild("InfoToast");
+            _infoToastText = (TextBlock)GetTemplateChild("InfoToastText");
 
-            StatusBar = (ToastFrameStatusBar) GetTemplateChild("StatusBar");
+            var dummyStatusBar = StatusBar;
+            StatusBar = (ToastFrameStatusBar)GetTemplateChild("StatusBar");
+
+            if (StatusBar != null)
+            {
+                StatusBar.IsIndeterminate = dummyStatusBar.IsIndeterminate;
+                StatusBar.ProgressValue = dummyStatusBar.ProgressValue;
+                if (dummyStatusBar.ProgressBarFill != null)
+                {
+                    StatusBar.ProgressBarFill = dummyStatusBar.ProgressBarFill;
+                }
+                StatusBar.Text = dummyStatusBar.Text;
+                StatusBar.IsOpen = dummyStatusBar.IsOpen;
+            }
 
             // Ensure that we are initialized to the correct state
             VisualStateManager.GoToState(this, "ToastHidden", false);
@@ -394,7 +413,7 @@ namespace Em.UI.Xaml.Controls
         {
             // Reset the translation back to 0 (this is not done for us automatically in the storyboard)
             _toastTranslate.X = 0;
-            
+
             // The completion of this storyboard indicates a toast has been dismissed by the user
             OnToastDismissed();
         }
@@ -405,7 +424,7 @@ namespace Em.UI.Xaml.Controls
             /// Title text that is displayed in bold. This is optional.
             /// </summary>
             public string Title { get; set; }
-            
+
             /// <summary>
             /// Content text that is displayed under the title text.
             /// </summary>

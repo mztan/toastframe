@@ -82,14 +82,14 @@ namespace Em.UI.Xaml.Controls
         /// </summary>
         public ToastFrameStatusBar()
         {
-            DefaultStyleKey = typeof (ToastFrameStatusBar);
+            DefaultStyleKey = typeof(ToastFrameStatusBar);
         }
 
         protected override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
 
-            VisualStateManager.GoToState(this, "StatusBarHidden", false);
+            VisualStateManager.GoToState(this, IsOpen ? "StatusBarVisible" : "StatusBarHidden", false);
         }
     }
 }
