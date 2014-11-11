@@ -3,6 +3,14 @@ toastframe
 
 Frame control for Windows Phone 8.1 that encapsulates toast-like popups. It also includes status bar like functionality to replace the built-in StatusBar. 
 
+Why?
+--------
+Because there is currently no simple way to display toasts within a Windows Phone app. In Windows Store apps, toast notifications are displayed even when the app is in the foreground; this is not the case for Windows Phone (as of WP8.1).
+
+Why include status bar (progress bar and text) functionality?
+--------
+Because it is currently not possible to display UI on top of the system status bar. Without including this functionality, using ToastFrame side-by-side with the built-in StatusBar's ProgressIndicator would be possible but troublesome.
+
 Features
 --------
 1. Two types of toasts: actionable and informational.
