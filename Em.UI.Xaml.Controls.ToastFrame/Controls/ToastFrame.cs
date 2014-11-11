@@ -64,6 +64,18 @@ namespace Em.UI.Xaml.Controls
             DependencyProperty.Register("StatusBarStyle", typeof(Style), typeof(ToastFrame), new PropertyMetadata(null));
 
         /// <summary>
+        /// Gets or sets whether the OS status bar is displayed when there are no toasts on the screen.
+        /// </summary>
+        public bool ShowSystemStatusBar
+        {
+            get { return (bool)GetValue(ShowSystemStatusBarProperty); }
+            set { SetValue(ShowSystemStatusBarProperty, value); }
+        }
+
+        public static readonly DependencyProperty ShowSystemStatusBarProperty =
+            DependencyProperty.Register("ShowSystemStatusBar", typeof(bool), typeof(ToastFrame), new PropertyMetadata(false));
+        
+        /// <summary>
         /// Provides properties for interacting with the status bar and progress indicator.
         /// </summary>
         public ToastFrameStatusBar StatusBar { get; private set; }
@@ -258,6 +270,11 @@ namespace Em.UI.Xaml.Controls
                 _currentToast = null;
                 _currentToastHandled = false;
                 VisualStateManager.GoToState(this, "ToastHidden", true);
+
+                if (ShowSystemStatusBar)
+                {
+                    Windows.UI.ViewManagement.StatusBar.GetForCurrentView().ShowAsync();
+                }
                 return;
             }
 
@@ -302,6 +319,12 @@ namespace Em.UI.Xaml.Controls
                 {
                     _toastText.Text = toastInfo.Text ?? string.Empty;
                 }
+            }
+
+            if (ShowSystemStatusBar)
+            {
+                await Windows.UI.ViewManagement.StatusBar.GetForCurrentView().HideAsync();
+                await Task.Delay(50);
             }
 
             // Finally, transition to the visible state
